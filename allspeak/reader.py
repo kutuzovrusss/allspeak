@@ -4,7 +4,7 @@ import io
 import os
 from os.path import join, dirname, realpath, abspath, normpath, isdir, splitext
 
-import poyo
+import yaml
 
 from .utils import LOCALES_FOLDER, split_locale, _is_sequence
 
@@ -16,8 +16,8 @@ def get_strict_yaml_data(filepath):
         return parse_yaml(f.read())
 
 
-def parse_yaml(yaml):
-    return poyo.parse_string(yaml)
+def parse_yaml(string):
+    return yaml.safe_load(string)
 
 
 def deep_update(source, overrides):

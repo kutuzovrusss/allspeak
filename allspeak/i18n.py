@@ -140,12 +140,10 @@ class I18n(RequestManager):
         if isinstance(value, dict):
             value = pluralize(value, count, locale)
 
-        """
         if isinstance(value, str):
             kwargs.setdefault("count", count)
             value = value.format(**kwargs)
             return self.markup(value)
-        """
 
         return value
 
